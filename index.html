@@ -8,13 +8,15 @@
     <meta name="description" content="Términos de uso (Español e Inglés) para la app launcher Brk718." />
     <style>
         :root {
-            --bg: #0b0d10;
-            --card: #12161c;
+            --bg: #090c12;
+            --card: #0f131b;
             --text: #e8eef7;
-            --muted: #a9b4c2;
-            --border: #263040;
+            --muted: #a6b2c4;
+            --border: #1e2837;
             --link: #7aa7ff;
-            --max: 900px;
+            --accent: #5fa8ff;
+            --accent-strong: #8fd0ff;
+            --max: 980px;
         }
 
         * {
@@ -24,13 +26,16 @@
         body {
             margin: 0;
             font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            background: linear-gradient(180deg, var(--bg), #0f1420);
+            background: radial-gradient(circle at 20% 20%, rgba(127, 162, 255, 0.06), transparent 35%),
+                radial-gradient(circle at 80% 10%, rgba(95, 168, 255, 0.08), transparent 30%),
+                linear-gradient(180deg, var(--bg), #0b0f17 45%, #0b101b);
             color: var(--text);
             line-height: 1.55;
+            min-height: 100vh;
         }
 
         header {
-            padding: 32px 16px 8px;
+            padding: 32px 16px 0;
         }
 
         main {
@@ -40,7 +45,7 @@
         }
 
         .card {
-            background: rgba(18, 22, 28, .92);
+            background: rgba(15, 19, 27, .92);
             border: 1px solid var(--border);
             border-radius: 16px;
             padding: 20px;
@@ -49,13 +54,15 @@
         }
 
         h1 {
-            font-size: 26px;
-            margin: 0 0 10px
+            font-size: 28px;
+            margin: 0 0 12px;
+            letter-spacing: -0.02em;
         }
 
         h2 {
             font-size: 18px;
-            margin: 22px 0 10px
+            margin: 22px 0 10px;
+            letter-spacing: -0.01em;
         }
 
         p,
@@ -97,6 +104,68 @@
             font-size: 14px;
         }
 
+        .hero-card {
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(21, 27, 39, .95), rgba(16, 22, 33, .93));
+            box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+            padding: 24px;
+        }
+
+        .meta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 8px 18px;
+            margin-top: 8px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(126, 167, 255, 0.06);
+            color: var(--accent-strong);
+            font-weight: 600;
+            font-size: 13px;
+            letter-spacing: 0.01em;
+        }
+
+        .lang-switch {
+            display: flex;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .lang-btn {
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .02);
+            color: var(--text);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+            transition: all .15s ease;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--accent-strong);
+            transform: translateY(-1px);
+        }
+
+        .lang-btn.active {
+            background: linear-gradient(135deg, rgba(95, 168, 255, 0.15), rgba(95, 168, 255, 0.08));
+            border-color: var(--accent);
+            color: var(--accent-strong);
+            box-shadow: 0 10px 30px rgba(95, 168, 255, 0.18);
+        }
+
         .lang-tag {
             display: inline-block;
             font-size: 12px;
@@ -105,6 +174,25 @@
             border-radius: 999px;
             color: var(--muted);
             margin-bottom: 10px;
+            letter-spacing: 0.02em;
+        }
+
+        .section-hidden {
+            display: none;
+        }
+
+        @media (max-width: 540px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .hero-card {
+                padding: 18px;
+            }
+
+            .lang-switch {
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
@@ -112,22 +200,26 @@
 <body>
     <header>
         <main>
-            <h1>Términos de Uso / Terms of Use</h1>
-            <p class="muted">
-                Última actualización / Last updated: <strong>2026</strong><br />
-                Contacto / Contact: <a href="mailto:brako718@gmail.com">brako718@gmail.com</a>
-            </p>
-            <p class="muted">
-                Política de Privacidad / Privacy Policy:
-                <a href="https://waar19.github.io/brk718-privacy/" target="_blank"
-                    rel="noopener">https://waar19.github.io/brk718-privacy/</a>
-            </p>
+            <div class="hero-card">
+                <div class="badge">Brk718 Launcher</div>
+                <h1>Términos de Uso / Terms of Use</h1>
+                <div class="meta-grid">
+                    <div><strong>Desarrollador:</strong> Brk718</div>
+                    <div><strong>Última actualización / Last updated:</strong> 2026-01-15</div>
+                    <div><strong>Contacto / Contact:</strong> <a href="mailto:brako718@gmail.com">brako718@gmail.com</a></div>
+                    <div><strong>Política de Privacidad:</strong> <a href="https://waar19.github.io/brk718-privacy/" target="_blank" rel="noopener">waar19.github.io/brk718-privacy/</a></div>
+                </div>
+                <div class="lang-switch" aria-label="Selector de idioma / Language selector">
+                    <button class="lang-btn active" data-lang-btn="es">Español</button>
+                    <button class="lang-btn" data-lang-btn="en">English</button>
+                </div>
+            </div>
         </main>
     </header>
 
     <main>
         <!-- ES -->
-        <section class="card" id="es">
+        <section class="card" id="es" data-lang="es">
             <div class="lang-tag">ESPAÑOL</div>
             <h2>1. Aceptación de los términos</h2>
             <p>
@@ -197,10 +289,8 @@
             </p>
         </section>
 
-        <hr />
-
         <!-- EN -->
-        <section class="card" id="en">
+        <section class="card section-hidden" id="en" data-lang="en">
             <div class="lang-tag">ENGLISH</div>
             <h2>1. Acceptance of terms</h2>
             <p>
@@ -278,6 +368,39 @@
             </p>
         </footer>
     </main>
+
+    <script>
+        (function () {
+            const buttons = document.querySelectorAll('[data-lang-btn]');
+            const sections = document.querySelectorAll('[data-lang]');
+
+            function setLang(lang) {
+                buttons.forEach(btn => {
+                    const isActive = btn.dataset.langBtn === lang;
+                    btn.classList.toggle('active', isActive);
+                });
+
+                sections.forEach(section => {
+                    const isMatch = section.dataset.lang === lang;
+                    section.classList.toggle('section-hidden', !isMatch);
+                    if (isMatch) {
+                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+
+                if (history.replaceState) {
+                    history.replaceState(null, '', `#${lang}`);
+                }
+            }
+
+            buttons.forEach(btn => {
+                btn.addEventListener('click', () => setLang(btn.dataset.langBtn));
+            });
+
+            const initial = location.hash.replace('#', '') === 'en' ? 'en' : 'es';
+            setLang(initial);
+        })();
+    </script>
 </body>
 
 </html>
