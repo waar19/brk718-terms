@@ -19,6 +19,17 @@
             --max: 980px;
         }
 
+        [data-theme="light"] {
+            --bg: #f5f7fa;
+            --card: #ffffff;
+            --text: #1a1f2e;
+            --muted: #6b7684;
+            --border: #e0e6ed;
+            --link: #2563eb;
+            --accent: #0066cc;
+            --accent-strong: #0052a3;
+        }
+
         * {
             box-sizing: border-box
         }
@@ -32,6 +43,11 @@
             color: var(--text);
             line-height: 1.55;
             min-height: 100vh;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        [data-theme="light"] body {
+            background: linear-gradient(180deg, var(--bg), #f8f9fc);
         }
 
         header {
@@ -141,6 +157,29 @@
             margin-top: 16px;
         }
 
+        .theme-switch {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, .02);
+            color: var(--text);
+            padding: 10px 18px;
+            border-radius: 12px;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            cursor: pointer;
+            transition: all .15s ease;
+            font-size: 14px;
+            z-index: 100;
+        }
+
+        .theme-switch:hover {
+            border-color: var(--accent);
+            color: var(--accent-strong);
+            transform: translateY(-1px);
+        }
+
         .lang-btn {
             border: 1px solid var(--border);
             background: rgba(255, 255, 255, .02);
@@ -193,11 +232,19 @@
             .lang-switch {
                 flex-wrap: wrap;
             }
+
+            .theme-switch {
+                top: 10px;
+                right: 10px;
+                padding: 8px 12px;
+                font-size: 13px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <button class="theme-switch" id="themeToggle" aria-label="Cambiar tema / Toggle theme">🌙 Modo oscuro / Dark mode</button>
     <header>
         <main>
             <div class="hero-card">
@@ -370,6 +417,34 @@
     </main>
 
     <script>
+        // Theme Toggle
+        (function () {
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or default to 'dark'
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            htmlElement.setAttribute('data-theme', savedTheme);
+            updateThemeButton(savedTheme);
+            
+            function updateThemeButton(theme) {
+                if (theme === 'light') {
+                    themeToggle.textContent = '☀️ Modo claro / Light mode';
+                } else {
+                    themeToggle.textContent = '🌙 Modo oscuro / Dark mode';
+                }
+            }
+            
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeButton(newTheme);
+            });
+        })();
+
+        // Language Toggle
         (function () {
             const buttons = document.querySelectorAll('[data-lang-btn]');
             const sections = document.querySelectorAll('[data-lang]');
