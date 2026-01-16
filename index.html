@@ -8,124 +8,84 @@
     <meta name="description" content="Términos de uso (Español e Inglés) para la app launcher Brk718." />
     <style>
         :root {
-            --bg: #090c12;
-            --card: #0f131b;
-            --text: #e8eef7;
-            --muted: #a6b2c4;
-            --border: #1e2837;
-            --link: #7aa7ff;
-            --accent: #5fa8ff;
-            --accent-strong: #8fd0ff;
-            --max: 980px;
-        }
-
-        [data-theme="light"] {
-            --bg: #f5f7fa;
-            --card: #ffffff;
-            --text: #1a1f2e;
-            --muted: #6b7684;
-            --border: #e0e6ed;
-            --link: #2563eb;
-            --accent: #0066cc;
-            --accent-strong: #0052a3;
-        }
-
-        * {
-            box-sizing: border-box
+            color-scheme: light dark;
         }
 
         body {
-            margin: 0;
             font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-            background: radial-gradient(circle at 20% 20%, rgba(127, 162, 255, 0.06), transparent 35%),
-                radial-gradient(circle at 80% 10%, rgba(95, 168, 255, 0.08), transparent 30%),
-                linear-gradient(180deg, var(--bg), #0b0f17 45%, #0b101b);
-            color: var(--text);
             line-height: 1.55;
-            min-height: 100vh;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
         }
 
-        [data-theme="light"] body {
-            background: linear-gradient(180deg, var(--bg), #f8f9fc);
+        header,
+        main,
+        footer {
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 24px;
         }
 
         header {
-            padding: 32px 16px 0;
-        }
-
-        main {
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: 16px;
-        }
-
-        .card {
-            background: rgba(15, 19, 27, .92);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, .25);
-            margin: 12px 0 18px;
-        }
-
-        h1 {
-            font-size: 28px;
-            margin: 0 0 12px;
-            letter-spacing: -0.02em;
-        }
-
-        h2 {
-            font-size: 18px;
-            margin: 22px 0 10px;
-            letter-spacing: -0.01em;
-        }
-
-        p,
-        li {
-            color: var(--text)
-        }
-
-        .muted {
-            color: var(--muted)
-        }
-
-        a {
-            color: var(--link);
-            text-decoration: none
-        }
-
-        a:hover {
-            text-decoration: underline
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid var(--border);
-            margin: 22px 0;
-        }
-
-        code {
-            background: #0f1520;
-            border: 1px solid var(--border);
-            padding: 2px 6px;
-            border-radius: 8px
+            border-bottom: 1px solid rgba(127, 127, 127, .25);
         }
 
         footer {
-            max-width: var(--max);
-            margin: 0 auto;
-            padding: 16px;
-            color: var(--muted);
+            border-top: 1px solid rgba(127, 127, 127, .25);
             font-size: 14px;
+            opacity: .9;
         }
 
-        .hero-card {
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            background: linear-gradient(135deg, rgba(21, 27, 39, .95), rgba(16, 22, 33, .93));
-            box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
-            padding: 24px;
+        h1 {
+            margin: 0 0 6px;
+            font-size: 26px;
+        }
+
+        h2 {
+            margin: 0 0 10px;
+            font-size: 20px;
+        }
+
+        .meta {
+            margin: 0;
+            opacity: .85;
+        }
+
+        nav {
+            margin-top: 14px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 6px 10px;
+            border: 1px solid rgba(127, 127, 127, .35);
+            border-radius: 10px;
+        }
+
+        section {
+            margin-top: 26px;
+        }
+
+        ul {
+            margin: 8px 0 0 18px;
+        }
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        }
+
+        .card {
+            border: 1px solid rgba(127, 127, 127, .25);
+            border-radius: 14px;
+            padding: 16px;
+            background: rgba(127, 127, 127, .06);
+        }
+
+        .small {
+            font-size: 14px;
+            opacity: .9;
         }
 
         .meta-grid {
@@ -133,87 +93,40 @@
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 8px 18px;
             margin-top: 8px;
-            color: var(--muted);
             font-size: 14px;
+            opacity: .85;
         }
 
         .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+            display: inline-block;
             padding: 6px 12px;
             border-radius: 999px;
-            border: 1px solid var(--border);
-            background: rgba(126, 167, 255, 0.06);
-            color: var(--accent-strong);
+            border: 1px solid rgba(127, 127, 127, .35);
+            background: rgba(127, 127, 127, .06);
             font-weight: 600;
             font-size: 13px;
-            letter-spacing: 0.01em;
-        }
-
-        .lang-switch {
-            display: flex;
-            gap: 10px;
-            margin-top: 16px;
-        }
-
-        .theme-switch {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, .02);
-            color: var(--text);
-            padding: 10px 18px;
-            border-radius: 12px;
-            font-weight: 600;
-            letter-spacing: 0.01em;
-            cursor: pointer;
-            transition: all .15s ease;
-            font-size: 14px;
-            z-index: 100;
-        }
-
-        .theme-switch:hover {
-            border-color: var(--accent);
-            color: var(--accent-strong);
-            transform: translateY(-1px);
+            margin-bottom: 8px;
         }
 
         .lang-btn {
-            border: 1px solid var(--border);
-            background: rgba(255, 255, 255, .02);
-            color: var(--text);
-            padding: 10px 18px;
-            border-radius: 12px;
+            border: 1px solid rgba(127, 127, 127, .35);
+            background: transparent;
+            padding: 6px 10px;
+            border-radius: 10px;
             font-weight: 600;
-            letter-spacing: 0.01em;
             cursor: pointer;
             transition: all .15s ease;
+            font-family: inherit;
+            font-size: inherit;
         }
 
         .lang-btn:hover {
-            border-color: var(--accent);
-            color: var(--accent-strong);
-            transform: translateY(-1px);
+            background: rgba(127, 127, 127, .1);
         }
 
         .lang-btn.active {
-            background: linear-gradient(135deg, rgba(95, 168, 255, 0.15), rgba(95, 168, 255, 0.08));
-            border-color: var(--accent);
-            color: var(--accent-strong);
-            box-shadow: 0 10px 30px rgba(95, 168, 255, 0.18);
-        }
-
-        .lang-tag {
-            display: inline-block;
-            font-size: 12px;
-            padding: 4px 10px;
-            border: 1px solid var(--border);
-            border-radius: 999px;
-            color: var(--muted);
-            margin-bottom: 10px;
-            letter-spacing: 0.02em;
+            background: rgba(127, 127, 127, .15);
+            border-color: rgba(127, 127, 127, .5);
         }
 
         .section-hidden {
@@ -222,194 +135,230 @@
 
         @media (max-width: 540px) {
             h1 {
-                font-size: 24px;
+                font-size: 22px;
             }
 
-            .hero-card {
-                padding: 18px;
-            }
-
-            .lang-switch {
-                flex-wrap: wrap;
-            }
-
-            .theme-switch {
-                top: 10px;
-                right: 10px;
-                padding: 8px 12px;
-                font-size: 13px;
+            .meta-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 
 <body>
-    <button class="theme-switch" id="themeToggle" aria-label="Cambiar tema / Toggle theme">🌙 Modo oscuro / Dark mode</button>
     <header>
-        <main>
-            <div class="hero-card">
-                <div class="badge">BFL (Brako Focus Launcher)</div>
-                <h1>Términos de Uso / Terms of Use</h1>
-                <div class="meta-grid">
-                    <div><strong>Desarrollador:</strong> Brk718</div>
-                    <div><strong>Última actualización / Last updated:</strong> 2026-01-15</div>
-                    <div><strong>Contacto / Contact:</strong> <a href="mailto:brako718@gmail.com">brako718@gmail.com</a></div>
-                    <div><strong>Política de Privacidad:</strong> <a href="https://waar19.github.io/brk718-privacy/" target="_blank" rel="noopener">waar19.github.io/brk718-privacy/</a></div>
-                </div>
-                <div class="lang-switch" aria-label="Selector de idioma / Language selector">
-                    <button class="lang-btn active" data-lang-btn="es">Español</button>
-                    <button class="lang-btn" data-lang-btn="en">English</button>
-                </div>
-            </div>
-        </main>
+        <h1>Términos de Uso / Terms of Use</h1>
+        <p class="meta"><strong>App:</strong> BFL (Brako Focus Launcher) &nbsp;·&nbsp; <strong>Desarrollador:</strong> Brk718</p>
+        <p class="meta"><strong>Última actualización / Last updated:</strong> 2026-01-15</p>
+        <div class="meta-grid">
+            <div><strong>Contacto / Contact:</strong> <a href="mailto:brako718@gmail.com">brako718@gmail.com</a></div>
+            <div><strong>Política de Privacidad:</strong> <a href="https://waar19.github.io/brk718-privacy/" target="_blank" rel="noopener">waar19.github.io/brk718-privacy/</a></div>
+        </div>
+
+        <nav aria-label="Selector de idioma / Language selector">
+            <button class="lang-btn active" data-lang-btn="es">Español</button>
+            <button class="lang-btn" data-lang-btn="en">English</button>
+        </nav>
     </header>
 
     <main>
         <!-- ES -->
-        <section class="card" id="es" data-lang="es">
-            <div class="lang-tag">ESPAÑOL</div>
-            <h2>1. Aceptación de los términos</h2>
-            <p>
-                Al instalar, acceder o usar esta aplicación (el “Launcher”), aceptas estos Términos y Condiciones.
-                Si no estás de acuerdo, no utilices la aplicación.
-            </p>
+        <section id="es" data-lang="es">
+            <h2>Español</h2>
+            <div class="card">
+                <p>
+                    Al instalar, acceder o usar <strong>BFL (Brako Focus Launcher)</strong> (el "Launcher"), aceptas estos Términos y Condiciones.
+                    Si no estás de acuerdo, no utilices la aplicación.
+                </p>
+            </div>
 
-            <h2>2. Descripción del servicio</h2>
-            <p>
-                El Launcher es una aplicación que reemplaza o personaliza la pantalla de inicio del dispositivo Android.
-                No garantiza mejoras de rendimiento, batería o estabilidad del sistema.
-            </p>
+            <section>
+            <section>
+                <h2>1. Descripción del servicio</h2>
+                <p>
+                    El Launcher es una aplicación que reemplaza o personaliza la pantalla de inicio del dispositivo Android.
+                    No garantiza mejoras de rendimiento, batería o estabilidad del sistema.
+                </p>
+            </section>
 
-            <h2>3. Uso permitido</h2>
-            <p>Te comprometes a:</p>
-            <ul>
-                <li>Usar la aplicación solo para fines legales.</li>
-                <li>No intentar modificar, descompilar, hacer ingeniería inversa o explotar el Launcher.</li>
-                <li>No usar la app para vulnerar la seguridad del dispositivo o de terceros.</li>
-            </ul>
+            <section>
+            <section>
+                <h2>2. Uso permitido</h2>
+                <p>Te comprometes a:</p>
+                <ul>
+                    <li>Usar la aplicación solo para fines legales.</li>
+                    <li>No intentar modificar, descompilar, hacer ingeniería inversa o explotar el Launcher.</li>
+                    <li>No usar la app para vulnerar la seguridad del dispositivo o de terceros.</li>
+                </ul>
+            </section>
 
-            <h2>4. Propiedad intelectual</h2>
-            <p>
-                Todo el software, diseño, iconografía, marca y código del Launcher pertenece a su desarrollador.
-                No se concede ningún derecho de propiedad intelectual más allá del uso personal y no exclusivo.
-            </p>
+            <section>
+            <section>
+                <h2>3. Propiedad intelectual</h2>
+                <p>
+                    Todo el software, diseño, iconografía, marca y código del Launcher pertenece a su desarrollador.
+                    No se concede ningún derecho de propiedad intelectual más allá del uso personal y no exclusivo.
+                </p>
+            </section>
 
-            <h2>5. Compras y suscripciones (si aplica)</h2>
-            <p>
-                Algunas funciones pueden requerir pago o suscripción. Los precios, duración y condiciones se muestran en
-                Google Play.
-                Los pagos y reembolsos se rigen por las políticas de Google Play.
-            </p>
+            <section>
+            <section>
+                <h2>4. Compras y suscripciones (si aplica)</h2>
+                <p>
+                    Algunas funciones pueden requerir pago o suscripción. Los precios, duración y condiciones se muestran en
+                    Google Play.
+                    Los pagos y reembolsos se rigen por las políticas de Google Play.
+                </p>
+            </section>
 
-            <h2>6. Limitación de responsabilidad</h2>
-            <p>
-                El Launcher se proporciona “tal cual”. No garantizamos que funcione sin errores, que sea compatible con
-                todos los dispositivos
-                o versiones de Android, o que no cause conflictos con otras aplicaciones o launchers.
-            </p>
-            <p>
-                En la máxima medida permitida por la ley, el desarrollador no será responsable por daños directos o
-                indirectos derivados del uso de la aplicación.
-            </p>
+            <section>
+            <section>
+                <h2>5. Limitación de responsabilidad</h2>
+                <p>
+                    El Launcher se proporciona "tal cual". No garantizamos que funcione sin errores, que sea compatible con
+                    todos los dispositivos
+                    o versiones de Android, o que no cause conflictos con otras aplicaciones o launchers.
+                </p>
+                <p>
+                    En la máxima medida permitida por la ley, el desarrollador no será responsable por daños directos o
+                    indirectos derivados del uso de la aplicación.
+                </p>
+            </section>
 
-            <h2>7. Cambios y actualizaciones</h2>
-            <p>
-                El Launcher puede actualizarse, modificarse o discontinuarse en cualquier momento sin previo aviso.
-                Estos términos pueden cambiar; el uso continuado implica aceptación de los cambios.
-            </p>
+            <section>
+            <section>
+                <h2>6. Cambios y actualizaciones</h2>
+                <p>
+                    El Launcher puede actualizarse, modificarse o discontinuarse en cualquier momento sin previo aviso.
+                    Estos términos pueden cambiar; el uso continuado implica aceptación de los cambios.
+                </p>
+            </section>
 
-            <h2>8. Terminación</h2>
-            <p>
-                Podemos suspender o finalizar el acceso si se incumplen estos términos o si el uso afecta negativamente
-                a otros usuarios o al sistema.
-            </p>
+            <section>
+            <section>
+                <h2>7. Terminación</h2>
+                <p>
+                    Podemos suspender o finalizar el acceso si se incumplen estos términos o si el uso afecta negativamente
+                    a otros usuarios o al sistema.
+                </p>
+            </section>
 
-            <h2>9. Legislación aplicable</h2>
+            <section>
+                <h2>8. Legislación aplicable</h2>
             <p>
                 Estos términos se rigen por las leyes del país del desarrollador, sin perjuicio de normas de protección
                 al consumidor aplicables.
             </p>
 
-            <h2>10. Contacto</h2>
-            <p>
-                Para soporte o consultas legales: <a href="mailto:brako718@gmail.com">brako718@gmail.com</a>
-            </p>
+            <section>
+                <h2>9. Contacto</h2>
+                <p>
+                    Para soporte o consultas legales: <a href="mailto:brako718@gmail.com">brako718@gmail.com</a>
+                </p>
+            </section>
         </section>
 
         <!-- EN -->
-        <section class="card section-hidden" id="en" data-lang="en">
-            <div class="lang-tag">ENGLISH</div>
-            <h2>1. Acceptance of terms</h2>
-            <p>
-                By installing, accessing, or using this application (the “Launcher”), you agree to these Terms and
-                Conditions.
-                If you do not agree, do not use the app.
-            </p>
+        <section class="section-hidden" id="en" data-lang="en">
+            <h2>English</h2>
+            <div class="card">
+                <p>
+                    By installing, accessing, or using <strong>BFL (Brako Focus Launcher)</strong> (the "Launcher"), you agree to these Terms and
+                    Conditions.
+                    If you do not agree, do not use the app.
+                </p>
+            </div>
 
-            <h2>2. Service description</h2>
-            <p>
-                The Launcher is an Android application that replaces or customizes the device’s home screen.
-                It does not guarantee performance, battery, or system stability improvements.
-            </p>
+            <section>
+            <section>
+                <h2>1. Service description</h2>
+                <p>
+                    The Launcher is an Android application that replaces or customizes the device's home screen.
+                    It does not guarantee performance, battery, or system stability improvements.
+                </p>
+            </section>
 
-            <h2>3. Permitted use</h2>
-            <p>You agree to:</p>
-            <ul>
-                <li>Use the app only for lawful purposes.</li>
-                <li>Not modify, decompile, reverse engineer, or exploit the Launcher.</li>
-                <li>Not use the app to compromise device or third-party security.</li>
-            </ul>
+            <section>
+            <section>
+                <h2>2. Permitted use</h2>
+                <p>You agree to:</p>
+                <ul>
+                    <li>Use the app only for lawful purposes.</li>
+                    <li>Not modify, decompile, reverse engineer, or exploit the Launcher.</li>
+                    <li>Not use the app to compromise device or third-party security.</li>
+                </ul>
+            </section>
 
-            <h2>4. Intellectual property</h2>
-            <p>
-                All software, design, icons, branding, and code belong to the developer.
-                No intellectual property rights are granted beyond personal, non-exclusive use.
-            </p>
+            <section>
+            <section>
+                <h2>3. Intellectual property</h2>
+                <p>
+                    All software, design, icons, branding, and code belong to the developer.
+                    No intellectual property rights are granted beyond personal, non-exclusive use.
+                </p>
+            </section>
 
-            <h2>5. Purchases and subscriptions (if applicable)</h2>
-            <p>
-                Some features may require payment or subscription. Prices, duration, and conditions are clearly
-                displayed on Google Play.
-                Payments and refunds are governed by Google Play policies.
-            </p>
+            <section>
+            <section>
+                <h2>4. Purchases and subscriptions (if applicable)</h2>
+                <p>
+                    Some features may require payment or subscription. Prices, duration, and conditions are clearly
+                    displayed on Google Play.
+                    Payments and refunds are governed by Google Play policies.
+                </p>
+            </section>
 
-            <h2>6. Limitation of liability</h2>
-            <p>
-                The Launcher is provided “as is”. We do not guarantee it will be error-free, compatible with all
-                devices/Android versions,
-                or conflict-free with other apps or launchers.
-            </p>
-            <p>
-                To the maximum extent permitted by law, the developer is not liable for direct or indirect damages
-                resulting from use of the app.
-            </p>
+            <section>
+            <section>
+                <h2>5. Limitation of liability</h2>
+                <p>
+                    The Launcher is provided "as is". We do not guarantee it will be error-free, compatible with all
+                    devices/Android versions,
+                    or conflict-free with other apps or launchers.
+                </p>
+                <p>
+                    To the maximum extent permitted by law, the developer is not liable for direct or indirect damages
+                    resulting from use of the app.
+                </p>
+            </section>
 
-            <h2>7. Changes and updates</h2>
-            <p>
-                The Launcher may be updated, modified, or discontinued at any time without prior notice.
-                These terms may change; continued use implies acceptance of updated terms.
-            </p>
+            <section>
+            <section>
+                <h2>6. Changes and updates</h2>
+                <p>
+                    The Launcher may be updated, modified, or discontinued at any time without prior notice.
+                    These terms may change; continued use implies acceptance of updated terms.
+                </p>
+            </section>
 
-            <h2>8. Termination</h2>
-            <p>
-                Access may be suspended or terminated if these terms are violated or if usage negatively impacts others
-                or the system.
-            </p>
+            <section>
+            <section>
+                <h2>7. Termination</h2>
+                <p>
+                    Access may be suspended or terminated if these terms are violated or if usage negatively impacts others
+                    or the system.
+                </p>
+            </section>
 
-            <h2>9. Governing law</h2>
-            <p>
-                These terms are governed by the laws of the developer’s country, without affecting applicable consumer
-                protection regulations.
-            </p>
+            <section>
+            <section>
+                <h2>8. Governing law</h2>
+                <p>
+                    These terms are governed by the laws of the developer's country, without affecting applicable consumer
+                    protection regulations.
+                </p>
+            </section>
 
-            <h2>10. Contact</h2>
-            <p>
-                For support or legal inquiries: <a href="mailto:brako718@gmail.com">brako718@gmail.com</a>
-            </p>
+            <section>
+                <h2>9. Contact</h2>
+                <p>
+                    For support or legal inquiries: <a href="mailto:brako718@gmail.com">brako718@gmail.com</a>
+                </p>
+            </section>
         </section>
 
         <footer>
-            <p>
+            <p class="small">
                 Nota: Este documento es una plantilla general para apps tipo launcher. Si tu app maneja datos sensibles,
                 perfilado publicitario, cuentas, o funciones empresariales, toca reforzarlo.
             </p>
@@ -417,33 +366,6 @@
     </main>
 
     <script>
-        // Theme Toggle
-        (function () {
-            const themeToggle = document.getElementById('themeToggle');
-            const htmlElement = document.documentElement;
-            
-            // Check for saved theme preference or default to 'dark'
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            htmlElement.setAttribute('data-theme', savedTheme);
-            updateThemeButton(savedTheme);
-            
-            function updateThemeButton(theme) {
-                if (theme === 'light') {
-                    themeToggle.textContent = '☀️ Modo claro / Light mode';
-                } else {
-                    themeToggle.textContent = '🌙 Modo oscuro / Dark mode';
-                }
-            }
-            
-            themeToggle.addEventListener('click', () => {
-                const currentTheme = htmlElement.getAttribute('data-theme');
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                htmlElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeButton(newTheme);
-            });
-        })();
-
         // Language Toggle
         (function () {
             const buttons = document.querySelectorAll('[data-lang-btn]');
@@ -458,9 +380,6 @@
                 sections.forEach(section => {
                     const isMatch = section.dataset.lang === lang;
                     section.classList.toggle('section-hidden', !isMatch);
-                    if (isMatch) {
-                        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
                 });
 
                 if (history.replaceState) {
